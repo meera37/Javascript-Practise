@@ -41,11 +41,11 @@ greater.forEach(x => {
 console.log('----------------------------------');
 
 great = covid_data.some((x)=>x[2]>15000)
-console.log(great);
+console.log(great?'yes':'no');
 console.log('----------------------------------');
 
 //6. sort data with 1st dose vaccine ascending order
-ascDose = covid_data.sort((n1,n2)=>n1[5] - n2[5])
+ascDose = covid_data.sort((n1,n2)=>n1[5] - n2[5]) //foreach
 console.log(ascDose);
 console.log('----------------------------------');
 
@@ -75,3 +75,4 @@ idukki = covid_data.filter((cured)=>cured[1]=='Idukki')
 idukki.forEach((idu)=>{
     console.log(idu[4])   
 })
+//use find

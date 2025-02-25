@@ -35,8 +35,10 @@ console.log(costly[1]);
 console.log('-----------------------------------------');
 
 //5. display out of stock product
-outstock = products.find((out)=>out[3]==0)
-console.log(outstock[1]);
+//also can use filter
+products.filter((out)=>out[3]==0).forEach((item)=>console.log(item[1]))
+// outstock = products.find((out)=>out[3]==0)  
+// console.log(outstock[1]);
 console.log('-----------------------------------------');
 
 //6. sort products based on stock in decsending order
@@ -50,18 +52,18 @@ console.log(highStock[1]);
 console.log('-----------------------------------------');
 
 //8. is there any product can be purchased by Rs. 10
-prodten = products.some((biscuit)=>biscuit[2]==10)
-console.log(prodten);
+prodten = products.some((biscuit)=>biscuit[2]<=10)
+console.log(prodten?'yes':'no');
 console.log('-----------------------------------------');
 
 //9. Is there any product in the range of 10 to 30
 prod1 = products.some((price)=>price[2]>10 && price[2]<30)
-console.log(prod1);
+console.log(prod1?'yes':'no');
 console.log('-----------------------------------------');
 
 //10. print all products in the range of 10 to 30
-prod2 = products.filter((prod)=>prod[2]>10 && prod[2]<30)
-prod2.forEach((pro)=>
-console.log(pro[1])
-)
+products.filter((prod)=>prod[2]>10 && prod[2]<30).forEach((pro)=>
+    console.log(pro[1])
+    )
+
 console.log('-----------------------------------------');
