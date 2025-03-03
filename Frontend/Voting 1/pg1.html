@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dom access</title>
+    <style>
+        h1{
+            color: blue;
+        }
+        button{
+            padding: 20px;
+            background-color: aqua;
+        }
+    </style>
+</head>
+<body>
+    <h1>DOM</h1>
+    <h1 class="styl1">sample</h1>
+    <p class="styl1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores nobis autem ad aliquid magnam suscipit nam repudiandae. Laboriosam, iure enim ipsa, harum minus quisquam culpa tempore ut odit provident neque.</p>
+    <p id="para">Lorem ipsum dolor sit amet consectetur adipisicing elit. At a vel dignissimos aliquam delectus, neque illo tempora quasi error voluptatum autem deserunt totam saepe, aut praesentium reprehenderit consectetur pariatur explicabo.</p>
+    <button onclick="change()">Click</button>
+</body>
+<script>
+    function change(){
+    //    const content = document.getElementsByTagName('h1')   //it returns an array(html collection) here all h1's in the code
+    //    console.log(content[0]);
+    //    content[0].innerHTML = "Document Object Model" // to access first index, we give index value and access through innerhtml() 
+    //    content[0].style.fontSize="100px"
+    //    content[1].style.color="red"
+
+    // const content = document.getElementsByClassName('styl1')
+    // console.log(content[1]);
+    // content[1].style.backgroundColor ="yellow"
+    
+        // const data =document.getElementById('para')
+        // console.log(data);
+        // data.style.backgroundColor ="yellow"
+
+        const data1 = document.querySelectorAll('.styl1')
+        console.log(data1);
+        
+       }
+</script>
+</html>
