@@ -16,7 +16,7 @@ while(i<=5){
 
 //w.a.p. to print from 10-1
 i=10;
-while(i<11 && i>0){   //i >=
+while(i<11 && i>0){   //i >=1
     console.log(`${i}`);
     i--;
     

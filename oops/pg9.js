@@ -1,4 +1,4 @@
-//method overriding  - js support - it returns last wriiten method...if the methods has same name and argument
+//method overriding  - js support - it returns last written method...if the methods has same name and argument
 class A{
     method(){
         console.log("first method");
