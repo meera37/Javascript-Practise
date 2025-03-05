@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajax</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container-fluid mt-5">
+        <div class="row">
+            <h1 class="text-center text-success">User Details</h1>
+        </div>
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+            <table class="table border border-2px solid">
+                <thead>
+                    <tr>
+                        <th class="bg-success p-3 text-white">userId</th>
+                        <th class="bg-success p-3 text-white">id</th>
+                        <th class="bg-success p-3 text-white">title</th>
+                        <th class="bg-success p-3 text-white">completed</th>
+                    </tr>
+                </thead>
+                
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                    </tr>
+                </tbody>
+                
+                
+            </table>
+        </div>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+<script>
+    //ajax
+    //1.create instance for xmlhttprequesrt class
+    const http = new XMLHttpRequest()
+    //2.call open method
+    http.open('get','https://jsonplaceholder.typicode.com/todos')
+    //3.send the request
+    http.send()                        //if post,update -give body but here get  so null
+
+    console.log(http.readyState);     //readyState -property-time delay 1 to 4 //console -1
+
+    http.onreadystatechange =()=>{                //onreadystatechange function define
+        console.log(http.readyState);             // console 1-4
+
+        if(http.readyState==4){
+            console.log('data');      // response time delay
+            if(http.status>=200 && http.status<300){                //if it is in 200series ,positive response
+                console.log('response');
+                console.log(http.responseText);           //predefined to //we got json data 
+            }
+            else{
+
+            }console.log('no data');
+            
+        }
+        else{
+             console.log('no data');
+        }
+        
+    }
+</script>
+</html>

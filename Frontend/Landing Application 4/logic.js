@@ -54,7 +54,7 @@ class Landing{
                 if(this.database[logUser.value].password ==logPswd.value){
                     localStorage.setItem("user",logUser.value)
                     alert('login successful')
-                    window.location = "dashboard.html"
+                    window.location = "index.html"
                 }else{
                     alert("invalid username or password")
                 }
