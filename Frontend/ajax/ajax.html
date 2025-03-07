@@ -10,10 +10,10 @@
     <div class="container-fluid mt-5">
         <div class="row">
             <h1 class="text-center text-success">User Details</h1>
-        </div>
+        
         <div class="col-md-3"></div>
         <div class="col-md-6">
-            <table class="table border border-2px solid">
+            <table class="table table-bordered ">
                 <thead>
                     <tr>
                         <th class="bg-success p-3 text-white">userId</th>
@@ -23,19 +23,17 @@
                     </tr>
                 </thead>
                 
-                <tbody>
-                    <tr>
-                        <td>1</td>
-                    </tr>
+                <tbody id="result">
+                   
                 </tbody>
                 
                 
             </table>
         </div>
+        <div class="col-md-3"></div>
     </div>
-    
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-</body>
+    </div>
+ </body>
 <script>
     //ajax
     //1.create instance for xmlhttprequesrt class
@@ -54,11 +52,24 @@
             console.log('data');      // response time delay
             if(http.status>=200 && http.status<300){                //if it is in 200series ,positive response
                 console.log('response');
-                console.log(http.responseText);           //predefined to //we got json data 
+              //  console.log(http.responseText);           //predefined to //we got json data 
+                let alltodos = JSON.parse(http.responseText) //coverts json format to array of object(to original format)
+                console.log(alltodos);
+
+                alltodos.forEach((item) => {              // access each item in array
+                    result.innerHTML +=                         //to get access content 
+                        ` <tr>                                  
+                                <td>${item.userId}</td>
+                                <td>${item.id}</td>
+                                <td>${item.title}</td>
+                                <td>${item.completed}</td>
+                        </tr> `
+                })
+                
             }
             else{
-
-            }console.log('no data');
+                console.log('no data');
+            }
             
         }
         else{

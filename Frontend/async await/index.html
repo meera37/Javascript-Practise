@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Country</title>
+     <!-- bootstrap cdn -->
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+     <!-- fontawesome cdn -->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+     <style>
+        body{
+            background-image: url('https://img.freepik.com/free-photo/hand-painted-watercolor-background-with-sky-clouds-shape_24972-1095.jpg?ga=GA1.1.2125829121.1736241292&semt=ais_hybrid');
+            background-repeat: no-repeat;
+            background-size: cover;
+            
+
+        }
+     </style>
+</head>
+<body>
+    <div class="container-fluid mt-5">
+        <div class="row" style="align-items: center; display: flex; justify-content: center;">
+            <h1 class="text-center text-success">Know your Country</h1>
+
+            <div class="input-group my-3" style="width: max-content;">
+                <input type="search" class="form-control rounded" id="countryname" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
+                <button type="button" class="btn btn-outline-primary" onclick="search()" data-mdb-ripple-init>search</button>
+            </div>
+<div class="align-items-center d-flex justify-content-center" id="result">
+            
+
+            <div class="card" style="width:18rem; padding: 10px;">
+                <img class="card-img-top" src="https://img.freepik.com/free-photo/closeup-shot-waving-flag-india-with-interesting-textures_181624-9551.jpg?ga=GA1.1.2125829121.1736241292&semt=ais_hybrid" width="300px" height="250px" alt="no image">
+                <div class="card-body">
+                  <h5 class="card-title text-center">India</h5>
+                  
+                </div>
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item">common</li>
+                  <li class="list-group-item">official name</li>
+                  <li class="list-group-item">currency</li>
+                  <li class="list-group-item">capital</li>
+                  <li class="list-group-item">languages</li>
+                  <li class="list-group-item">borders</li>
+                  <li class="list-group-item">googlemaps</li>
+                  <li class="list-group-item">area</li>
+                  <li class="list-group-item">population</li>
+                  <li class="list-group-item">continent</li>
+                  <li class="list-group-item">timezone</li>
+                  <li class="list-group-item">flag</li>
+                </ul>
+                
+              </div>
+   </div>           
+
+            </div>
+            </div>
+</body>
+
+<script>
+    const search = async()=>{
+       // console.log(countryname.value);
+        
+        let response = await fetch(`https://restcountries.com/v3.1/name/${countryname.value}?fullText=true`)
+    response.json().then((data)=>{
+        console.log(data);
+
+        //common
+        let common = data[0].name.common
+        console.log(common);
+
+        //offical 
+        let official = data[0].name.official        
+        console.log(official);
+        
+        //capital;
+        let capital = data[0].capital[0]
+        console.log(capital);
+
+        //continents
+        let continents = data[0].continents
+        console.log(continents);
+        
+        //borders
+        let border = data[0].borders
+        console.log(border);
+        //googlemap
+        let map = data[0].maps.googleMaps
+        console.log(map);
+        //area
+        let area = data[0].area
+        console.log(area);
+
+        //population
+        let population=data[0].population
+        console.log(population);
+        //timezone
+        let timezone = data[0].timezones
+        console.log(timezone);
+        //flag
+        let flag = data[0].flags.png
+        console.log(flag);
+        
+        
+        
+        
+   })}
+</script>
+
+</html>
