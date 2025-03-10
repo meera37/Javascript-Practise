@@ -29,35 +29,15 @@
                 <input type="search" class="form-control rounded" id="countryname" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
                 <button type="button" class="btn btn-outline-primary" onclick="search()" data-mdb-ripple-init>search</button>
             </div>
-<div class="align-items-center d-flex justify-content-center" id="result">
+
+            <div id="result">
+
+            </div>
+         
+
+            </div>
+            </div>
             
-
-            <div class="card" style="width:18rem; padding: 10px;">
-                <img class="card-img-top" src="https://img.freepik.com/free-photo/closeup-shot-waving-flag-india-with-interesting-textures_181624-9551.jpg?ga=GA1.1.2125829121.1736241292&semt=ais_hybrid" width="300px" height="250px" alt="no image">
-                <div class="card-body">
-                  <h5 class="card-title text-center">India</h5>
-                  
-                </div>
-                <ul class="list-group list-group-flush">
-                  <li class="list-group-item">common</li>
-                  <li class="list-group-item">official name</li>
-                  <li class="list-group-item">currency</li>
-                  <li class="list-group-item">capital</li>
-                  <li class="list-group-item">languages</li>
-                  <li class="list-group-item">borders</li>
-                  <li class="list-group-item">googlemaps</li>
-                  <li class="list-group-item">area</li>
-                  <li class="list-group-item">population</li>
-                  <li class="list-group-item">continent</li>
-                  <li class="list-group-item">timezone</li>
-                  <li class="list-group-item">flag</li>
-                </ul>
-                
-              </div>
-   </div>           
-
-            </div>
-            </div>
 </body>
 
 <script>
@@ -103,11 +83,69 @@
         //flag
         let flag = data[0].flags.png
         console.log(flag);
+
+        //currencies
+        let curr=[]
+        let currency = data[0].currencies
+        for(x in currency){
+        var  currencyname=  currency[x].name
+        var currencysymbol=  currency[x].symbol
+        curr.push(currencysymbol,currencyname)
+        }
+        console.log(curr);
         
         
+        //languages
+        let nationalLang = []
+        let lang = data[0].languages
+        //console.log(lang);
+        
+        for(key in lang){
+            nationalLang.push(lang[key])
+           
+            
+        }
+        console.log(nationalLang);
         
         
-   })}
+        result.innerHTML = `
+        
+        <div class="align-items-center d-flex justify-content-center" >
+            
+
+            <div class="card" style="width:18rem; padding: 10px;">
+                <img class="card-img-top" src="${flag}" width="300px" height="250px" alt="no image">
+                <div class="card-body">
+                  <h5 class="card-title text-center">${common}</h5>
+                  
+                </div>
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item">official name  :${official}</li>
+                  <li class="list-group-item">currency  :${curr}</li>
+                  <li class="list-group-item">capital : ${capital}</li>
+                  <li class="list-group-item">languages : ${nationalLang}</li>
+                  <li class="list-group-item">borders : ${border}</li>
+                  <li class="list-group-item">googlemaps : <a href="${map}" target="_blank">${map}</a></li>
+                  <li class="list-group-item">area : ${area}</li>
+                  <li class="list-group-item">population : ${population}</li>
+                  <li class="list-group-item">continent : ${continents}</li>
+                  <li class="list-group-item">timezone : ${timezone}</li>
+                  
+                </ul>
+                
+              </div>
+   </div>  
+        `
+   
+   
+   
+   
+      })
+   
+   
+   
+   
+   }
 </script>
 
 </html>
